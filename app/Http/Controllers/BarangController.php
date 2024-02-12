@@ -14,4 +14,14 @@ class BarangController extends Controller
         // return view('dataBarang',compact('data'));
         return view('dataBarang',['data' => $data]);
     }
+
+    public function tambahBarang(){
+        return view('tambahBarang');
+    }
+
+    public function insertBarang(Request $request){
+        // dd($request->all());
+        Barang::create($request->all());
+        return redirect()->route('barang')->with('success','Data berhasil ditambahkan');
+    }
 }
