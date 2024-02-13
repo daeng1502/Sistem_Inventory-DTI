@@ -53,8 +53,8 @@
                     <td>{{ $row->lokasi }}</td>
                     <td>{{ $row->tahun_perolehan }}</td>
                     <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <a href="/tampilBarang/{{ $row->SN }}"  class="btn btn-info">Edit</a>
+                        <a href="/hapusBarang/{{ $row->SN }}" type="button" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 @endforeach
