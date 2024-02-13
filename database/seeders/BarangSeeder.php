@@ -19,7 +19,7 @@ class BarangSeeder extends Seeder
             'nama' => 'Laptop',
             'merk' => 'Lenovo Ideapad 3',
             'spesifikasi' => 'Bagus',
-            'jumlah barang' => '10',
+            'jumlah_barang' => '10',
             'no_kontrak' => '123/ABC',
             'nama_kontrak' => 'Rektor/Pengadaan',
             'tgl_kontrak' => '2024-02-10',

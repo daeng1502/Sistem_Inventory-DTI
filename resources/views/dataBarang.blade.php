@@ -14,9 +14,14 @@
     <!-- Your HTML layout -->
 <div class="container">
     <div class="position-relative">
-        <button class="btn btn-primary position-absolute bottom-0 end-0 mt-4">Tambah Barang</button>
+        <a href="/tambahBarang" class="btn btn-primary position-absolute bottom-0 end-0 mt-4">Tambah Barang</a>
     </div>
-    <div class="row">
+        <div class="row">
+        @if($message = Session::get('success'))
+            <div class="alert alert-success" role="alert">
+            {{$message}}
+            </div>
+        @endif
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -41,7 +46,7 @@
                     <td>{{ $row->nama }}</td>
                     <td>{{ $row->merk }}</td>
                     <td>{{ $row->spesifikasi }}</td>
-                    <td>{{ $row->{"jumlah barang"} }}</td>
+                    <td>{{ $row->jumlah_barang }}</td>
                     <td>{{ $row->no_kontrak }}</td>
                     <td>{{ $row->nama_kontrak }}</td>
                     <td>{{ $row->tgl_kontrak }}</td>
@@ -60,7 +65,7 @@
                         <td>{{ $row->nama }}</td>
                         <td>{{ $row->merk }}</td>
                         <td>{{ $row->spesifikasi }}</td>
-                        <td>{{ $row->{"jumlah barang"} }}</td>
+                        <td>{{ $row->jumlah_barang }}</td>
                         <td>{{ $row->no_kontrak }}</td>
                         <td>{{ $row->nama_kontrak }}</td>
                         <td>{{ $row->tgl_kontrak }}</td>

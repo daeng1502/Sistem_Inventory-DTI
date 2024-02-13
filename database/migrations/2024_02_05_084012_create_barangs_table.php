@@ -18,7 +18,7 @@ class CreateBarangsTable extends Migration
             $table->string('nama');
             $table->string('merk');
             $table->string('spesifikasi');
-            $table->integer('jumlah barang');
+            $table->integer('jumlah_barang');
             $table->string('no_kontrak');
             $table->string('nama_kontrak');
             $table->date('tgl_kontrak');
