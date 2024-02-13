@@ -14,7 +14,8 @@ class CreateBarangsTable extends Migration
     public function up()
     {
         Schema::create('barangs', function (Blueprint $table) {
-            $table->string('SN');
+            // $table->id('SN');
+            $table->string('SN')->primary(); // Menggunakan SN sebagai primary key
             $table->string('nama');
             $table->string('merk');
             $table->string('spesifikasi');
