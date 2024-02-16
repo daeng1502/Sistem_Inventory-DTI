@@ -71,6 +71,11 @@
                                 <input type="number" name="tahun_perolehan" class="form-control" id="exampleInputPassword1">
                             </div>
 
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Masukkan Foto Barang</label>
+                                <input type="file" name="foto" class="form-control" >
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>

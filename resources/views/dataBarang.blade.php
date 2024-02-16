@@ -26,6 +26,7 @@
             <thead>
                 <tr>
                     <th scope="col">SN</th>
+                    <th scope="col">Gambar</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Merk</th>
                     <th scope="col">Spesifikasi</th>
@@ -43,6 +44,9 @@
                 @foreach($data as $row)
                 <tr>
                     <td>{{ $row->SN }}</td>
+                    <td>
+                        <img src="{{ asset('fotoBarang/'.$row->foto) }}" style="width: 60px">
+                    </td>
                     <td>{{ $row->nama }}</td>
                     <td>{{ $row->merk }}</td>
                     <td>{{ $row->spesifikasi }}</td>

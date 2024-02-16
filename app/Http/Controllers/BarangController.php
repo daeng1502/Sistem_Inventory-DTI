@@ -20,8 +20,14 @@ class BarangController extends Controller
     }
 
     public function insertBarang(Request $request){
+        
         // dd($request->all());
-        Barang::create($request->all());
+        $data = Barang::create($request->all());
+        if($request->hasfile('foto')){
+            $request->file('foto')->move('fotoBarang/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
         return redirect()->route('barang')->with('success','Data Berhasil di Tambah');
     }
 
