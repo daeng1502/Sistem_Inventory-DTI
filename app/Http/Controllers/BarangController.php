@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 class BarangController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        $data = Barang::all();
+        if($request->has('search')){
+            $data = Barang::where('nama','LIKE','%' .$request->search.'%')->paginate(5);
+        }
+        else{
+            $data = Barang::paginate(5);
+        }
         // dd($data);
         // return view('dataBarang',compact('data'));
         return view('dataBarang',['data' => $data]);
