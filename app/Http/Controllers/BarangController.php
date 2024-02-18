@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 class BarangController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        $data = Barang::all();
+        if($request->has('search')){
+            $data = Barang::where('nama','LIKE','%' .$request->search.'%')->paginate(5);
+        }
+        else{
+            $data = Barang::paginate(5);
+        }
         // dd($data);
         // return view('dataBarang',compact('data'));
         return view('dataBarang',['data' => $data]);
@@ -20,8 +25,14 @@ class BarangController extends Controller
     }
 
     public function insertBarang(Request $request){
+        
         // dd($request->all());
-        Barang::create($request->all());
+        $data = Barang::create($request->all());
+        if($request->hasfile('foto')){
+            $request->file('foto')->move('fotoBarang/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
         return redirect()->route('barang')->with('success','Data Berhasil di Tambah');
     }
 
