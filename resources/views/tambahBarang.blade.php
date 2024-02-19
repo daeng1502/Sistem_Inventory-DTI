@@ -25,6 +25,11 @@
                                 <label for="exampleInputEmail1" class="form-label">Serial Number</label>
                                 <input type="text" name="SN" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
+
+                            <!-- <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Barcode</label>
+                                <input type="text" name="barcode" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div> -->
                             
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
