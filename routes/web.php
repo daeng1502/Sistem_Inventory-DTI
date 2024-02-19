@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home',[HomeController::class,'index']);
+
 Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang');
 Route::get('/tambahBarang', [BarangController::class, 'tambahBarang'])->name('tambahBarang');
 Route::post('/insertBarang', [BarangController::class, 'insertBarang'])->name('insertBarang');
