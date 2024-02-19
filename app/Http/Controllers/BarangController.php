@@ -24,6 +24,44 @@ class BarangController extends Controller
         return view('tambahBarang');
     }
 
+    // public function store(Request $request){
+    //     $number = mt_rand(1000000000, 9999999999);
+
+    //     if($this->barcodeExists($number)){
+    //         $number = mt_rand(1000000000, 9999999999);
+    //     }
+
+    //     $request['barangcode'] = $number;
+    //     Barang::create($request->all());
+
+    //     return redirect('/ManajemenItem');
+    // }
+
+        public function store(Request $request)
+    {
+        $number = mt_rand(1000000000, 9999999999);
+
+        if($this->barcodeExists($number)){
+            $number = mt_rand(1000000000, 9999999999);
+        }
+
+        $request['barangcode'] = $number;
+        $data = Barang::create($request->all());
+
+        if($request->hasfile('foto')){
+            $request->file('foto')->move('fotoBarang/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
+
+        return redirect('/ManajemenItem');
+    }
+
+
+    public function barcodeExists($number){
+        return Barang::wherebarangcode($number)->exists();
+    }
+    
     public function insertBarang(Request $request){
         
         // dd($request->all());
@@ -55,4 +93,6 @@ class BarangController extends Controller
 
         return redirect()->route('barang')->with('success','Data Berhasil di Hapus');
     }
+
+    
 }

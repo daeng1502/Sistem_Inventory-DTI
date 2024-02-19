@@ -26,6 +26,7 @@ class CreateBarangsTable extends Migration
             $table->date('tgl_kontrak');
             $table->string('lokasi');
             $table->integer('tahun_perolehan');
+            $table->string('barangcode');
             $table->timestamps();
         });
     }
