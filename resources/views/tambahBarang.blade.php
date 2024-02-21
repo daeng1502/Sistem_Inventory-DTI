@@ -25,6 +25,11 @@
                                 <label for="exampleInputEmail1" class="form-label">Serial Number</label>
                                 <input type="text" name="SN" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
+
+                            <!-- <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Barcode</label>
+                                <input type="text" name="barcode" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div> -->
                             
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
@@ -69,6 +74,11 @@
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Tahun Perolehan</label>
                                 <input type="number" name="tahun_perolehan" class="form-control" id="exampleInputPassword1">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Masukkan Foto Barang</label>
+                                <input type="file" name="foto" class="form-control" >
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>

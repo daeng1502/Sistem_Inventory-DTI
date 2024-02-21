@@ -24,13 +24,20 @@ Route::get('post',[HomeController::class,'post'])->middleware(('auth'),('admin')
 
 Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang');
 Route::get('/tambahBarang', [BarangController::class, 'tambahBarang'])->name('tambahBarang');
-Route::post('/insertBarang', [BarangController::class, 'insertBarang'])->name('insertBarang');
+// Route::post('/insertBarang', [BarangController::class, 'insertBarang'])->name('insertBarang');
+Route::post('/insertBarang', [BarangController::class, 'store'])->name('store');
 Route::get('/tampilBarang/{SN}', [BarangController::class, 'tampilBarang'])->name('tampilBarang');
 Route::post('/updateBarang/{SN}', [BarangController::class, 'updateBarang'])->name('updateBarang');
 Route::get('/hapusBarang/{SN}', [BarangController::class, 'hapusBarang'])->name('hapusBarang');
 
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

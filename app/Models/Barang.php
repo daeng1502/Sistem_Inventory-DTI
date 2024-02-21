@@ -14,4 +14,8 @@ class Barang extends Model
     protected $primaryKey = 'SN'; // Tentukan kolom 'SN' sebagai primary key
     public $incrementing = false; // Set false agar Laravel tidak menganggap kolom ini auto-increment
     protected $keyType = 'string'; // Tentukan tipe data primary key
+
+    // protected $fillable = [
+    //     'SN'
+    // ];
 }
