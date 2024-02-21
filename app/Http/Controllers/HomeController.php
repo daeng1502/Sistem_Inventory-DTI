@@ -22,6 +22,15 @@ class HomeController extends Controller
             {
                 return view('dashboard');
             }
+            else
+            {
+                return redirect()->back();
+            }
         }
+    }
+
+    public function post()
+    {
+        return view("post");
     }
 }
