@@ -8,12 +8,23 @@ use Illuminate\Http\Request;
 class BarangController extends Controller
 {
     public function index(Request $request){
-
+    
+    // Menggunakan orderBy() untuk mengurutkan data berdasarkan created_at secara descending
+    // $query = Barang::orderBy('created_at', 'desc');
+    $query = Barang::orderBy('created_at', 'asc');
+    
         if($request->has('search')){
             $data = Barang::where('nama','LIKE','%' .$request->search.'%')->paginate(5);
+            $data = Barang::where('SN','LIKE','%' .$request->search.'%')->paginate(5);
+            $data = Barang::where('tgl_kontrak','LIKE','%' .$request->search.'%')->paginate(5);
+            $data = Barang::where('merk','LIKE','%' .$request->search.'%')->paginate(5);
+            $data = Barang::where('tahun_perolehan','LIKE','%' .$request->search.'%')->paginate(5);
+            $data = Barang::where('lokasi','LIKE','%' .$request->search.'%')->paginate(5);
         }
         else{
-            $data = Barang::paginate(5);
+            // Eksekusi query dan gunakan paginate() untuk membatasi hasil menjadi 5 data per halaman
+            $data = $query->paginate(5);
+            // $data = Barang::paginate(5);
         }
         // dd($data);
         // return view('dataBarang',compact('data'));
@@ -23,19 +34,6 @@ class BarangController extends Controller
     public function tambahBarang(){
         return view('tambahBarang');
     }
-
-    // public function store(Request $request){
-    //     $number = mt_rand(1000000000, 9999999999);
-
-    //     if($this->barcodeExists($number)){
-    //         $number = mt_rand(1000000000, 9999999999);
-    //     }
-
-    //     $request['barangcode'] = $number;
-    //     Barang::create($request->all());
-
-    //     return redirect('/ManajemenItem');
-    // }
 
         public function store(Request $request)
     {

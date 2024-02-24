@@ -8,9 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <h2 class="text-left ms-3">Aplikasi Inventaris</h2>
-    <h4 class="text-left ms-3 mb-5">DIREKTORAT TEKNOLOGI INFORMASI</h4>
-
+    
+    <div class="ms-2 mb-5 mt-2"style="display: inline-block; vertical-align: middle;">
+        <img src="Unand.png" style="width: 60px; vertical-align: middle;" />
+    </div>
+    <div style="display: inline-block; vertical-align: middle;">
+        <h2 class="text-left ms-3">Aplikasi Inventaris</h2>
+        <h4 class="text-left ms-3 mb-5">DIREKTORAT TEKNOLOGI INFORMASI</h4>
+    </div>
     
     <!-- Your HTML layout -->
 <div class="container">
@@ -84,7 +89,7 @@
                     <td>{{ $row->tahun_perolehan }}</td>
                     <!-- <td>{!! DNS2D::getBarcodeHTML("$row->barangcode",'QRCODE') !!}</td> -->
                     <!-- <td>{!! DNS2D::getBarcodeHTML("$row->barangcode",'DATAMATRIX') !!}</td> -->
-                    <td>{!! DNS1D::getBarcodeHTML("$row->barangcode",'PHARMA',2,100) !!}
+                    <td>{!! DNS1D::getBarcodeHTML("$row->barangcode",'PHARMA',1,50) !!}
                         P - {{ $row->SN }}
                     </td>
                     <td>
@@ -150,26 +155,66 @@
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Navigation Bar</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <div>
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+    
+     Pilih Modul di Bawah
+      <div class="dropdown mt-3" style="width: 100%";>
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" style="width: 100%; height: 5em; text-align: left; background-color: #0F3E62;">
+          Manajemen Item
+        </button>
+        <ul class="dropdown-menu" style="width: 100%";>
+          <li><a class="dropdown-item" href="/ManajemenItem">Pencatatan Asset</a></li>
+          <li><a class="dropdown-item" href="#">Scan BarCode</a></li>
+        </ul>
     </div>
-    <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
+
+    <div class="dropdown mt-3" style="width: 100%"; >
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" style="width: 100%; height: 5em; text-align: left; background-color: #0F3E62;">
+          Distribusi
+        </button>
+        <ul class="dropdown-menu" style="width: 100%";>
+          <li><a class="dropdown-item" href="/">Asset Pegawai</a></li>
+          <li><a class="dropdown-item" href="#">Lokasi Barang</a></li>
+        </ul>
+    </div>
+
+    <div class="dropdown mt-3" style="width: 100%";>
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" style="width: 100%; height: 5em; text-align: left; background-color: #0F3E62;">
+          Maintenance
+        </button>
+        <ul class="dropdown-menu" style="width: 100%";>
+          <li><a class="dropdown-item" href="/">List request</a></li>
+          <li><a class="dropdown-item" href="#">Riwayat</a></li>
+        </ul>
+    </div>
+
+    <div class="dropdown mt-3" style="width: 100%";>
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"style="width: 100%; height: 5em; text-align: left; background-color: #0F3E62;">
+          Pengadaan
+        </button>
+        <ul class="dropdown-menu" style="width: 100%";>
+          <li><a class="dropdown-item" href="/">Request Pengadaan</a></li>
+          <li><a class="dropdown-item" href="#">List Pengadaan</a></li>
+          <li><a class="dropdown-item" href="#">Riwayat Pengadaan</a></li>
+        </ul>
+    </div>
+
+    <div class="dropdown mt-3" style="width: 100%";>
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" style="width: 100%; height: 5em; text-align: left; background-color: #0F3E62;">
+          Laporan
+        </button>
+        <ul class="dropdown-menu" style="width: 100%";>
+          <li><a class="dropdown-item" href="/">Cetak Laporan</a></li>
+        </ul>
+    </div>
+
     </div>
   </div>
 </div>
-
 <!-- side bar -->
 
 
