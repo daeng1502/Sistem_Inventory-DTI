@@ -35,3 +35,9 @@ require __DIR__.'/auth.php';
 Route::get('/requestMaintenance', function () {
     return view('requestMaintenance');
 });
+
+route::get('/requestMaintenance',[requestController::class,'requestMaintenance']);
+
+Route::get('/riwayatMaintenance', function () {
+    return view('riwayatMaintenance');
+});

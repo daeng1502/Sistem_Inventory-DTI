@@ -36,14 +36,17 @@
 
     <div class="container">
         <h2>lokasi barang:</h2>
-        <select name="fruits" id="fruits">
+        <!-- <select name="fruits" id="fruits">
             <option value="apple">Ruang Rapat</option>
             <option value="banana">Ruang Programmer</option>
             <option value="orange">Lobby</option>
             <option value="strawberry">WC</option>
-        </select>
+        </select> -->
+        @foreach($data as $item)
+        <hi>{{$item['lokasi']}}</hi>
+        @endforeach
     </div>
-    <div class="container">
+    <!-- <div class="container">
         <h2>nama barang:</h2>
         <select name="fruits" id="fruits">
             <option value="apple">komputer</option>
@@ -94,6 +97,6 @@
         <input type="text" id="textbox" name="name"><br><br>
         <input type="submit" value="Submit">
     </form>
-    </div>
+    </div> -->
 </body>
 </html>
