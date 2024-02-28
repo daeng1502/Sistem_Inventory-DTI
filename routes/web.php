@@ -23,6 +23,8 @@ Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('h
 Route::get('post',[HomeController::class,'post'])->middleware(('auth'),('admin'));
 
 Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang');
+Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang');
+Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang')->middleware(('auth'),('admin'));
 Route::get('/tambahBarang', [BarangController::class, 'tambahBarang'])->name('tambahBarang');
 // Route::post('/insertBarang', [BarangController::class, 'insertBarang'])->name('insertBarang');
 Route::post('/insertBarang', [BarangController::class, 'store'])->name('store');
