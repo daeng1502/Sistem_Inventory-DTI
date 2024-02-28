@@ -22,10 +22,15 @@ Route::get('/', function () {
 Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
 Route::get('post',[HomeController::class,'post'])->middleware(('auth'),('admin'));
 
-Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang');
-Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang');
+
+//CRUDSD+Scanner
+Route::get('/ManajemenItemUser', [BarangController::class, 'index'])->name('barang');
+Route::get('/detailBarang/{SN}', [BarangController::class, 'detailBarang'])->name('detailBarang');
+Route::get('/barangQRScanner', [BarangController::class, 'scanner'])->name('scanner');
+
+//Admin
 Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang')->middleware(('auth'),('admin'));
-Route::get('/tambahBarang', [BarangController::class, 'tambahBarang'])->name('tambahBarang');
+Route::get('/tambahBarang', [BarangController::class, 'tambahBarang'])->name('tambahBarang')->middleware(('auth'),('admin'));
 // Route::post('/insertBarang', [BarangController::class, 'insertBarang'])->name('insertBarang');
 Route::post('/insertBarang', [BarangController::class, 'store'])->name('store')->middleware(('auth'),('admin'));
 Route::get('/tampilBarang/{SN}', [BarangController::class, 'tampilBarang'])->name('tampilBarang')->middleware(('auth'),('admin'));
@@ -42,4 +47,4 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require _DIR_.'/auth.php';
