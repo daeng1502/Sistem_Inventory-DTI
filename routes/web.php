@@ -22,14 +22,10 @@ Route::get('/', function () {
 Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
 Route::get('post',[HomeController::class,'post'])->middleware(('auth'),('admin'));
 
-
-//CRUDSD
-Route::get('/ManajemenItemUser', [BarangController::class, 'index'])->name('barang');
-Route::get('/detailBarang/{SN}', [BarangController::class, 'detailBarang'])->name('detailBarang');
-
-//Admin
+Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang');
+Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang');
 Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang')->middleware(('auth'),('admin'));
-Route::get('/tambahBarang', [BarangController::class, 'tambahBarang'])->name('tambahBarang')->middleware(('auth'),('admin'));
+Route::get('/tambahBarang', [BarangController::class, 'tambahBarang'])->name('tambahBarang');
 // Route::post('/insertBarang', [BarangController::class, 'insertBarang'])->name('insertBarang');
 Route::post('/insertBarang', [BarangController::class, 'store'])->name('store')->middleware(('auth'),('admin'));
 Route::get('/tampilBarang/{SN}', [BarangController::class, 'tampilBarang'])->name('tampilBarang')->middleware(('auth'),('admin'));
