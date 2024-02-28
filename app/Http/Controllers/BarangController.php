@@ -5,33 +5,66 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class BarangController extends Controller
 {
-    public function index(Request $request){
-    
-    // Menggunakan orderBy() untuk mengurutkan data berdasarkan created_at secara descending
-    // $query = Barang::orderBy('created_at', 'desc');
-    $query = Barang::orderBy('created_at', 'asc');
-    
-        if($request->has('search')){
-            $data = Barang::where('nama','LIKE','%' .$request->search.'%')->paginate(5);
-            $data = Barang::where('SN','LIKE','%' .$request->search.'%')->paginate(5);
-            $data = Barang::where('tgl_kontrak','LIKE','%' .$request->search.'%')->paginate(5);
-            $data = Barang::where('merk','LIKE','%' .$request->search.'%')->paginate(5);
-            $data = Barang::where('tahun_perolehan','LIKE','%' .$request->search.'%')->paginate(5);
-            $data = Barang::where('lokasi','LIKE','%' .$request->search.'%')->paginate(5);
-        }
-        else{
-            // Eksekusi query dan gunakan paginate() untuk membatasi hasil menjadi 5 data per halaman
-            $data = $query->paginate(5);
-            // $data = Barang::paginate(5);
-        }
-        // dd($data);
-        // return view('dataBarang',compact('data'));
-        return view('dataBarang',['data' => $data]);
-    }
 
+    // public function index(Request $request) {
+    //     $query = Barang::orderBy('created_at', 'asc'); // Urutkan data berdasarkan tanggal pembuatan
+    
+    //     if ($request->has('search')) {
+    //         $searchTerm = $request->search;
+    //         $data = $query->where('nama', 'LIKE', '%' . $searchTerm . '%')
+    //                       ->orWhere('SN', 'LIKE', '%' . $searchTerm . '%')
+    //                       ->orWhere('tgl_kontrak', 'LIKE', '%' . $searchTerm . '%')
+    //                       ->orWhere('merk', 'LIKE', '%' . $searchTerm . '%')
+    //                       ->orWhere('tahun_perolehan', 'LIKE', '%' . $searchTerm . '%')
+    //                       ->orWhere('lokasi', 'LIKE', '%' . $searchTerm . '%')
+    //                       ->paginate(5);
+    //     } else {
+    //         $data = $query->paginate(5);
+    //     }
+    
+    //     return view('dataBarang')->with('data', $data);
+    //     // return view('dataBarangUser')->with('data', $data);
+
+    // }
+
+
+    public function index(Request $request) {
+        $query = Barang::orderBy('created_at', 'asc'); // Urutkan data berdasarkan tanggal pembuatan
+    
+        if ($request->has('search')) {
+            $searchTerm = $request->search;
+            $data = $query->where('nama', 'LIKE', '%' . $searchTerm . '%')
+                          ->orWhere('SN', 'LIKE', '%' . $searchTerm . '%')
+                          ->orWhere('tgl_kontrak', 'LIKE', '%' . $searchTerm . '%')
+                          ->orWhere('merk', 'LIKE', '%' . $searchTerm . '%')
+                          ->orWhere('tahun_perolehan', 'LIKE', '%' . $searchTerm . '%')
+                          ->orWhere('lokasi', 'LIKE', '%' . $searchTerm . '%')
+                          ->paginate(5);
+        } else {
+            $data = $query->paginate(5);
+        }
+    
+        if (Auth::check()) {
+            $usertype = Auth()->user()->usertype;
+            
+            if ($usertype == 'user') {
+                return view('dataBarangUser')->with('data', $data);
+            } elseif ($usertype == 'admin') {
+                return view('dataBarang')->with('data', $data);
+            } else {
+                return redirect()->back();
+            }
+        } else {
+            // Redirect somewhere else if user is not logged in
+        }
+    }
+    
+    
     public function tambahBarang(){
         return view('tambahBarang');
     }
@@ -93,5 +126,9 @@ class BarangController extends Controller
         return redirect()->route('barang')->with('success','Data Berhasil di Hapus');
     }
 
-    
+    public function detailBarang($SN){
+        // $data = Barang::find($SN)->first();
+        $data = DB::table('barangs')->where('SN', $SN)->get();
+        return view('detailBarang',['data' => $data]);
+    }
 }
