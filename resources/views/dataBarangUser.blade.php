@@ -50,11 +50,11 @@
                     <th scope="col">Nama</th>
                     <th scope="col">Merk</th>
                     <!-- <th scope="col">Spesifikasi</th> -->
-                    <th scope="col">Jumlah</th>
+                    <th scope="col">Jumlah (Unit)</th>
                     <!-- <th scope="col">No Kontak</th>
                     <th scope="col">Nama Kontrak</th>
-                    <th scope="col">Tanggal Kontrak</th> -->
-                    <th scope="col">Lokasi</th>
+                    <th scope="col">Tanggal Kontrak</th> 
+                    <th scope="col">Harga (Rp)</th> -->
                     <th scope="col">Tahun</th>
                     <th scope="col">Barcode</th>
                     <th scope="col">Aksi</th>
@@ -74,8 +74,8 @@
                     <td>{{ $row->jumlah_barang }}</td>
                     <!-- <td>{{ $row->no_kontrak }}</td>
                     <td>{{ $row->nama_kontrak }}</td>
-                    <td>{{ $row->tgl_kontrak }}</td> -->
-                    <td>{{ $row->lokasi }}</td>
+                    <td>{{ $row->tgl_kontrak }}</td> 
+                    <td>{{ $row->harga }}</td> -->
                     <td>{{ $row->tahun_perolehan }}</td>
                     <!-- <td>{!! DNS2D::getBarcodeHTML("$row->barangcode",'QRCODE') !!}</td> -->
                     <!-- <td>{!! DNS2D::getBarcodeHTML("$row->barangcode",'DATAMATRIX') !!}</td> -->
