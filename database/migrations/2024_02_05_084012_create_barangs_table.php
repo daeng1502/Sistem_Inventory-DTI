@@ -15,7 +15,7 @@ class CreateBarangsTable extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
             // $table->id('SN');
-            $table->string('SN')->primary(); // Menggunakan SN sebagai primary key
+            $table->string('SN')->primary()->unique(); // Menjadikan 'SN' sebagai primary key dan unik
             $table->string('foto');
             $table->string('nama');
             $table->string('merk');

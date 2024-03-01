@@ -18,7 +18,7 @@
 
 <div class="container">
     <div class="position-relative mb-3 ">
-        <a href="/ManajemenItem" class="btn btn-primary position-absolute bottom-0 end-0 mt-4">Kembali</a>
+        <a href="/barangQRScanner" class="btn btn-primary position-absolute bottom-0 end-0 mt-4">Kembali</a>
         
         <div class="row g-3 align-items-center">
             <div class="col-auto">
@@ -37,47 +37,45 @@
     <div class="row">
         <table class="table table-striped mx-3">
             <tbody>
-                @foreach($data as $row)
                 <tr>
-                    <td><strong>SN:</strong> {{ $row->SN }}</td>
+                    <td><strong>SN:</strong> {{ $data->SN }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Gambar:</strong> <img src="{{ asset('fotoBarang/'.$row->foto) }}" style="width: 200px"></td>
+                    <td><strong>Gambar:</strong> <img src="{{ asset('fotoBarang/'.$data->foto) }}" style="width: 200px"></td>
                 </tr>
                 <tr>
-                    <td><strong>Nama:</strong> {{ $row->nama }}</td>
+                    <td><strong>Nama:</strong> {{ $data->nama }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Merk:</strong> {{ $row->merk }}</td>
+                    <td><strong>Merk:</strong> {{ $data->merk }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Spesifikasi:</strong> {{ $row->spesifikasi }}</td>
+                    <td><strong>Spesifikasi:</strong> {{ $data->spesifikasi }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Jumlah:</strong> {{ $row->jumlah_barang }}</td>
+                    <td><strong>Jumlah:</strong> {{ $data->jumlah_barang }}</td>
                 </tr>
                 <tr>
-                    <td><strong>No Kontrak:</strong> {{ $row->no_kontrak }}</td>
+                    <td><strong>No Kontrak:</strong> {{ $data->no_kontrak }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Nama Kontrak:</strong> {{ $row->nama_kontrak }}</td>
+                    <td><strong>Nama Kontrak:</strong> {{ $data->nama_kontrak }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Tanggal Kontrak:</strong> {{ $row->tgl_kontrak }}</td>
+                    <td><strong>Tanggal Kontrak:</strong> {{ $data->tgl_kontrak }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Lokasi:</strong> {{ $row->lokasi }}</td>
+                    <td><strong>Lokasi:</strong> {{ $data->lokasi }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Tahun Perolehan:</strong> {{ $row->tahun_perolehan }}</td>
+                    <td><strong>Tahun Perolehan:</strong> {{ $data->tahun_perolehan }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Barcode:</strong><br>{!! DNS1D::getBarcodeHTML("$row->barangcode",'PHARMA',1,50) !!} P - {{ $row->SN }}</td>
+                    <td><strong>Barcode:</strong><br>{!! DNS1D::getBarcodeHTML($data->barangcode,'PHARMA',1,50) !!} P - {{ $data->SN }}</td>
                 </tr>
                 <tr>
-                    <td><strong>QRcode:</strong><br>{!! DNS2D::getBarcodeHTML("$row->barangcode",'QRCODE') !!}</td>
+                    <td><strong>QRcode:</strong><br>{!! DNS2D::getBarcodeHTML($data->barangcode,'QRCODE') !!}</td>
                 </tr>  
-                @endforeach
             </tbody>
         </table>
     </div>
