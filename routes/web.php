@@ -23,15 +23,18 @@ Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('h
 Route::get('post',[HomeController::class,'post'])->middleware(('auth'),('admin'));
 
 
-//CRUDSD
+//CRUDSD+Scanner
 Route::get('/ManajemenItemUser', [BarangController::class, 'index'])->name('barang');
 Route::get('/detailBarang/{SN}', [BarangController::class, 'detailBarang'])->name('detailBarang');
+Route::get('/barangQRScanner', [BarangController::class, 'scanner'])->name('barangQRScanner');
+Route::post('/scan', [BarangController::class, 'scan'])->name('scan');
 
 //Admin
 Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang')->middleware(('auth'),('admin'));
 Route::get('/tambahBarang', [BarangController::class, 'tambahBarang'])->name('tambahBarang')->middleware(('auth'),('admin'));
+Route::post('/insertBarang', [BarangController::class, 'store'])->name('insertBarang')->middleware(('auth'),('admin'));
 // Route::post('/insertBarang', [BarangController::class, 'insertBarang'])->name('insertBarang');
-Route::post('/insertBarang', [BarangController::class, 'store'])->name('store')->middleware(('auth'),('admin'));
+
 Route::get('/tampilBarang/{SN}', [BarangController::class, 'tampilBarang'])->name('tampilBarang')->middleware(('auth'),('admin'));
 Route::post('/updateBarang/{SN}', [BarangController::class, 'updateBarang'])->name('updateBarang')->middleware(('auth'),('admin'));
 Route::get('/hapusBarang/{SN}', [BarangController::class, 'hapusBarang'])->name('hapusBarang')->middleware(('auth'),('admin'));

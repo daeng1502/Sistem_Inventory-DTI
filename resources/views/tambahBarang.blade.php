@@ -19,67 +19,117 @@
             <div class="card">
                 <h2 class="mb-2 mt-2">Form Tambah Data Barang</h2>
                     <div class="card-body">
-                        <form action="/insertBarang" method="POST" enctype="multipart/form-data">
+
+                        <form method="POST" action="{{ route('insertBarang') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Serial Number</label>
-                                <input type="text" name="SN" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="text" name="SN" class="form-control" id="SN" aria-describedby="emailHelp">
                             </div>
 
-                            <!-- <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Barcode</label>
-                                <input type="text" name="barcode" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div> -->
-                            
+                            @error('SN')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
                                 <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
+
+                            @error('nama')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
 
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Merk Barang</label>
                                 <input type="text" name="merk" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
 
+                            @error('merk')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
+
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Spesifikasi</label>
                                 <input type="text" name="spesifikasi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
+
+                            @error('spesifikasi')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
 
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Jumlah Barang</label>
                                 <input type="number" name="jumlah_barang" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
 
+                            @error('jumlah_barang')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
+
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">No Kontrak</label>
                                 <input type="text" name="no_kontrak" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
 
+                            @error('no_kontrak')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
+
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nama Kontrak</label>
                                 <input type="text" name="nama_kontrak" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
+
+                            @error('nama_kontrak')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
                             
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Tanggal Kontrak</label>
                                 <input type="date" name="tgl_kontrak" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
 
+                            @error('tgl_kontrak')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
+
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Lokasi</label>
                                 <input type="text" name="lokasi" class="form-control" id="exampleInputPassword1">
                             </div>
+
+                            @error('lokasi')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
 
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Tahun Perolehan</label>
                                 <input type="number" name="tahun_perolehan" class="form-control" id="exampleInputPassword1">
                             </div>
 
+                            @error('tahun_perolehan')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
+
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Masukkan Foto Barang</label>
                                 <input type="file" name="foto" class="form-control" >
                             </div>
+
+                            @error('foto')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
 
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
