@@ -54,3 +54,14 @@ Route::get('/dashboard', function () {
 
 // require _DIR_.'/auth.php';
 require __DIR__.'/auth.php';
+
+
+// Route::get('/requestMaintenance', function () {
+//     return view('requestMaintenance');
+// });
+
+route::get('/requestMaintenance',[RequestController::class,'requestMaintenance']);
+
+Route::get('/riwayatMaintenance', function () {
+    return view('riwayatMaintenance');
+});
