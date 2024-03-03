@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,11 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
+
 
 Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
 Route::get('post',[HomeController::class,'post'])->middleware(('auth'),('admin'));
@@ -42,6 +48,23 @@ Route::get('/tampilBarang/{SN}', [BarangController::class, 'tampilBarang'])->nam
 Route::post('/updateBarang/{SN}', [BarangController::class, 'updateBarang'])->name('updateBarang')->middleware(('auth'),('admin'));
 Route::get('/hapusBarang/{SN}', [BarangController::class, 'hapusBarang'])->name('hapusBarang')->middleware(('auth'),('admin'));
 
+// Menampilkan daftar user
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
+// Menampilkan form tambah user
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+
+// Menyimpan data user baru
+Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
+
+// Menampilkan form edit user
+Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
+
+// Memperbarui data user
+Route::put('/user/update/{user}', [UserController::class, 'update'])->name('user.update');
+
+// Menghapus user
+Route::delete('/user/destroy/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
