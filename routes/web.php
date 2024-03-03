@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
+
+
 Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
 Route::get('post',[HomeController::class,'post'])->middleware(('auth'),('admin'));
 
