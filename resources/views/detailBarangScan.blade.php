@@ -65,7 +65,7 @@
                     <td><strong>Tanggal Kontrak:</strong> {{ $data->tgl_kontrak }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Lokasi:</strong> {{ $data->lokasi }}</td>
+                    <td><strong>Lokasi:</strong> {{ $data->harga }}</td>
                 </tr>
                 <tr>
                     <td><strong>Tahun Perolehan:</strong> {{ $data->tahun_perolehan }}</td>
@@ -76,6 +76,9 @@
                 <tr>
                     <td><strong>QRcode:</strong><br>{!! DNS2D::getBarcodeHTML($data->barangcode,'QRCODE') !!}</td>
                 </tr>  
+                <tr>
+                    <td><strong>Created at:</strong> {{ $row->created_at }}</td>
+                </tr>
             </tbody>
         </table>
     </div>

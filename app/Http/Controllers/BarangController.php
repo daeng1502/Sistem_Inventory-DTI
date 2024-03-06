@@ -6,6 +6,7 @@ use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Validator;
 
 class BarangController extends Controller
 {
@@ -20,7 +21,7 @@ class BarangController extends Controller
                           ->orWhere('tgl_kontrak', 'LIKE', '%' . $searchTerm . '%')
                           ->orWhere('merk', 'LIKE', '%' . $searchTerm . '%')
                           ->orWhere('tahun_perolehan', 'LIKE', '%' . $searchTerm . '%')
-                          ->orWhere('lokasi', 'LIKE', '%' . $searchTerm . '%')
+                          ->orWhere('harga', 'LIKE', '%' . $searchTerm . '%')
                           ->paginate(5);
         } else {
             $data = $query->paginate(5);
@@ -59,7 +60,7 @@ class BarangController extends Controller
             'no_kontrak' => 'required',
             'tgl_kontrak' => 'required',
             'nama_kontrak' => 'required',
-            'lokasi' => 'required',
+            'harga' => 'required',
             'tahun_perolehan' => 'required',
             'foto' => 'required'
         ],
@@ -68,14 +69,14 @@ class BarangController extends Controller
             'SN.required' => 'Nomor Serial wajib diisi.',
             'nama.required' => 'Nama wajib diisi.', // Pesan kesalahan untuk atribut nama
             'merk.required' => 'Merk wajib diisi.',
-            'spesifikasi.required' => 'Merk wajib diisi.',
-            'jumlah_barang.required' => 'Merk wajib diisi.',
-            'no_kontrak.required' => 'Merk wajib diisi.',
-            'tgl_kontrak.required' => 'Merk wajib diisi.',
-            'nama_kontrak.required' => 'Merk wajib diisi.',
-            'lokasi.required' => 'Merk wajib diisi.',
-            'tahun_perolehan.required' => 'Merk wajib diisi.',
-            'foto.required' => 'Merk wajib diisi.',
+            'spesifikasi.required' => 'Spesifikasi wajib diisi.',
+            'jumlah_barang.required' => 'Jumlah barang wajib diisi.',
+            'no_kontrak.required' => 'No Kontrak wajib diisi.',
+            'tgl_kontrak.required' => 'Tanggal Kontrak wajib diisi.',
+            'nama_kontrak.required' => 'Nama Kontrak wajib diisi.',
+            'harga.required' => 'Harga wajib diisi.',
+            'tahun_perolehan.required' => 'Tahun wajib diisi.',
+            'foto.required' => 'Foto wajib diisi.',
         ]); 
 
         $number = mt_rand(1000000000, 9999999999);
@@ -113,7 +114,7 @@ class BarangController extends Controller
             'no_kontrak' => 'required',
             'tgl_kontrak' => 'required',
             'nama_kontrak' => 'required',
-            'lokasi' => 'required',
+            'harga' => 'required',
             'tahun_perolehan' => 'required',
             'foto' => 'required'
         ],
@@ -122,14 +123,14 @@ class BarangController extends Controller
             'SN.required' => 'Nomor Serial wajib diisi.',
             'nama.required' => 'Nama wajib diisi.', // Pesan kesalahan untuk atribut nama
             'merk.required' => 'Merk wajib diisi.',
-            'spesifikasi.required' => 'Merk wajib diisi.',
-            'jumlah_barang.required' => 'Merk wajib diisi.',
-            'no_kontrak.required' => 'Merk wajib diisi.',
-            'tgl_kontrak.required' => 'Merk wajib diisi.',
-            'nama_kontrak.required' => 'Merk wajib diisi.',
-            'lokasi.required' => 'Merk wajib diisi.',
-            'tahun_perolehan.required' => 'Merk wajib diisi.',
-            'foto.required' => 'Merk wajib diisi.',
+            'spesifikasi.required' => 'Spesifikasi wajib diisi.',
+            'jumlah_barang.required' => 'Jumlah barang wajib diisi.',
+            'no_kontrak.required' => 'No Kontrak wajib diisi.',
+            'tgl_kontrak.required' => 'Tanggal Kontrak wajib diisi.',
+            'nama_kontrak.required' => 'Nama Kontrak wajib diisi.',
+            'harga.required' => 'Harga wajib diisi.',
+            'tahun_perolehan.required' => 'Tahun wajib diisi.',
+            'foto.required' => 'Foto wajib diisi.',
         ]); 
         
         // dd($request->all());

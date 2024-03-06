@@ -2,9 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\DistribusiController;
+
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -87,22 +91,35 @@ Route::get('post',[HomeController::class,'post'])->middleware(('auth'),('admin')
 //CRUDSD+Scanner
 Route::get('/ManajemenItemUser', [BarangController::class, 'index'])->name('barang');
 Route::get('/detailBarang/{SN}', [BarangController::class, 'detailBarang'])->name('detailBarang');
-
 Route::get('/barangQRScanner', [BarangController::class, 'scanner'])->name('barangQRScanner');
 Route::post('/scan', [BarangController::class, 'scan'])->name('scan');
 Route::get('/barangQRScanner', [BarangController::class, 'scanner'])->name('scanner');
-
 
 //Admin
 Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang')->middleware(('auth'),('admin'));
 Route::get('/tambahBarang', [BarangController::class, 'tambahBarang'])->name('tambahBarang')->middleware(('auth'),('admin'));
 Route::post('/insertBarang', [BarangController::class, 'store'])->name('insertBarang')->middleware(('auth'),('admin'));
-// Route::post('/insertBarang', [BarangController::class, 'insertBarang'])->name('insertBarang');
-
 Route::get('/tampilBarang/{SN}', [BarangController::class, 'tampilBarang'])->name('tampilBarang')->middleware(('auth'),('admin'));
 Route::post('/updateBarang/{SN}', [BarangController::class, 'updateBarang'])->name('updateBarang')->middleware(('auth'),('admin'));
 Route::get('/hapusBarang/{SN}', [BarangController::class, 'hapusBarang'])->name('hapusBarang')->middleware(('auth'),('admin'));
 
+// Menampilkan daftar user
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
+// Menampilkan form tambah user
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+
+// Menyimpan data user baru
+Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
+
+// Menampilkan form edit user
+Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
+
+// Memperbarui data user
+Route::put('/user/update/{user}', [UserController::class, 'update'])->name('user.update');
+
+// Menghapus user
+Route::delete('/user/destroy/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -126,3 +143,4 @@ route::get('/requestMaintenance',[RequestController::class,'requestMaintenance']
 Route::get('/riwayatMaintenance', function () {
     return view('riwayatMaintenance');
 });
+
