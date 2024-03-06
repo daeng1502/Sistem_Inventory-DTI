@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
+
+
 Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
 Route::get('post',[HomeController::class,'post'])->middleware(('auth'),('admin'));
 
@@ -48,4 +53,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+// require _DIR_.'/auth.php';
 require __DIR__.'/auth.php';
+
+
+// Route::get('/requestMaintenance', function () {
+//     return view('requestMaintenance');
+// });
+
+route::get('/requestMaintenance',[RequestController::class,'requestMaintenance']);
+
+Route::get('/riwayatMaintenance', function () {
+    return view('riwayatMaintenance');
+});
+
