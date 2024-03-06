@@ -185,6 +185,14 @@ class BarangController extends Controller
         // Jika data barang tidak ditemukan, kembalikan ke halaman scanner dengan pesan kesalahan
         return redirect('/barangQRScanner')->with('gagal', 'Data tidak ditemukan');
     }
+
+    public function combo_barang() {
+ 
+        $data = Barang::get();
+
+        return response()->json($data);
+   }
+
     
     
 }
