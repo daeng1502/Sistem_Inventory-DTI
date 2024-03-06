@@ -16,8 +16,8 @@
   
     <div class="row justify-content-center">
         <div class="col-8">
-            <div class="card">
-                <h2 class="mb-2 mt-2">Form Tambah Data Barang</h2>
+            <div class="card mb-5">
+                <h2 class="mb-2 mt-2 ms-2">Form Tambah Data Barang</h2>
                     <div class="card-body">
 
                         <form method="POST" action="{{ route('insertBarang') }}" enctype="multipart/form-data">
@@ -102,11 +102,11 @@
 
 
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Lokasi</label>
-                                <input type="text" name="lokasi" class="form-control" id="exampleInputPassword1">
+                                <label for="exampleInputPassword1" class="form-label">Harga</label>
+                                <input type="text" name="harga" class="form-control" id="exampleInputPassword1">
                             </div>
 
-                            @error('lokasi')
+                            @error('harga')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
 
