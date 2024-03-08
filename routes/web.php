@@ -104,22 +104,18 @@ Route::post('/updateBarang/{SN}', [BarangController::class, 'updateBarang'])->na
 Route::get('/hapusBarang/{SN}', [BarangController::class, 'hapusBarang'])->name('hapusBarang')->middleware(('auth'),('admin'));
 
 // Menampilkan daftar user
-Route::get('/user', [UserController::class, 'index'])->name('user.index');
+Route::get('/user', [UserController::class, 'index'])->name('user');
 
 // Menampilkan form tambah user
-Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
-
-// Menyimpan data user baru
-Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
+Route::get('/createUser', [UserController::class, 'createUser'])->name('createUser');
+Route::post('/insertUser', [UserController::class, 'insertUser'])->name('insertUser');
 
 // Menampilkan form edit user
-Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
-
-// Memperbarui data user
-Route::put('/user/update/{user}', [UserController::class, 'update'])->name('user.update');
+Route::get('/showUser/{id}', [UserController::class, 'showUser'])->name('showUser');
+Route::post('/updateUser/{id}', [UserController::class, 'updateUser'])->name('updateUser');
 
 // Menghapus user
-Route::delete('/user/destroy/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
