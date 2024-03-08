@@ -1,11 +1,8 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-      <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-      </div>
-      <div class="sidebar-brand-text mx-3">INVENTORY <sup>2</sup></div>
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
+      <div class="sidebar-brand-text mx-3">INVENTORY</div>
   </a>
 
   <!-- Divider -->
@@ -13,7 +10,7 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ route('home') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
   </li>
@@ -27,8 +24,8 @@
   </div>
 
   <!-- Nav Item - Pages Collapse Menu -->
-  <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+  {{-- <li class="nav-item">
+      <a class="nav-link collapsed" href="{{ route('barang') }}" data-toggle="collapse" data-target="#collapseTwo"
           aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Data Barang</span>
@@ -40,6 +37,11 @@
               <a class="collapse-item" href="cards.html">Cards</a>
           </div>
       </div>
+  </li> --}}
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('barang') }}">
+      <i class="fas fa-fw fa-folder"></i>
+        <span>Data Barang</span></a>
   </li>
 
   <!-- Nav Item - Utilities Collapse Menu -->
@@ -70,12 +72,12 @@
   </div>
 
   <li class="nav-item">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="{{ route('distribusi.data') }}">
       <i class="fas fa-fw fa-folder"></i>
         <span>Distribusi</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="{{ route('lokasi.data') }}">
       <i class="fas fa-fw fa-folder"></i>
         <span>Data Lokasi</span></a>
   </li>
