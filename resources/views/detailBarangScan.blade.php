@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    @extends('template.main')
+    @section('content')
+    
 
 <div class="ms-2 mb-5 mt-2"style="display: inline-block; vertical-align: middle;">
     </div>
@@ -77,7 +80,7 @@
                     <td><strong>QRcode:</strong><br>{!! DNS2D::getBarcodeHTML($data->barangcode,'QRCODE') !!}</td>
                 </tr>  
                 <tr>
-                    <td><strong>Created at:</strong> {{ $row->created_at }}</td>
+                    <td><strong>Created at:</strong> {{ $data->created_at }}</td>
                 </tr>
             </tbody>
         </table>
@@ -89,5 +92,6 @@
     @endif
 </div>
 
+    @endsection
 </body>
 </html>

@@ -18,14 +18,6 @@
           <span>Dashboard</span></a>
   </li>
 
-  <hr class="sidebar-divider my-0">
-
-  <li class="nav-item">
-    <a class="nav-link" href="index.html">
-      <i class="fas fa-fw fa-folder"></i>
-        <span>Data Lokasi</span></a>
-  </li>
-
   <!-- Divider -->
   <hr class="sidebar-divider">
 
@@ -35,20 +27,20 @@
   </div>
 
   <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
-        aria-expanded="true" aria-controls="collapseOne">
-        <i class="fas fa-fw fa-folder"></i>
-        <span>Data Barang</span>
-    </a>
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-            <a class="collapse-item" href="/ManajemenItem">Manajemen Item</a>
-            <a class="collapse-item" href="/barangQRScanner">Scan QR Code</a>
-        </div>
-    </div>
-</li>
+  <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+          aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Data Barang</span>
+      </a>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+              <a class="collapse-item" href="/ManajemenItemUser">Manajemen Item</a>
+              <a class="collapse-item" href="/barangQRScanner">Scan QR Code</a>
+          </div>
+      </div>
+  </li>
 
   <!-- Nav Item - Utilities Collapse Menu -->
   <!-- <li class="nav-item">
@@ -82,60 +74,15 @@
       <i class="fas fa-fw fa-folder"></i>
         <span>Distribusi</span></a>
   </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-    <div class="sidebar-heading">
-      Maintanance
-  </div>
-
   <li class="nav-item">
     <a class="nav-link" href="index.html">
       <i class="fas fa-fw fa-folder"></i>
-        <span>Maintanance</span></a>
+        <span>Data Lokasi</span></a>
   </li>
-
-   <!-- Divider -->
-   <hr class="sidebar-divider">
-    <div class="sidebar-heading">
-      Procurement
-  </div>
-
-  <li class="nav-item">
-    <a class="nav-link" href="index.html">
-      <i class="fas fa-fw fa-folder"></i>
-        <span>Pengadaan</span></a>
-  </li>
-
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
 
-   <!-- Heading -->
-   <div class="sidebar-heading">
-      Laporan
-  </div>
-
-  <!-- Nav Item - Pages Collapse Menu -->
-  <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-          aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Report</span>
-      </a>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-              <a class="collapse-item" href="/ManajemenItem">ManajemenItem</a>
-              <a class="collapse-item" href="/barangQRScanner">Distribusi</a>
-              <a class="collapse-item" href="/barangQRScanner">Maintenance</a>
-              <a class="collapse-item" href="/barangQRScanner">Procurement</a>
-            </div>
-      </div>
-  </li>
-
-   <!-- Divider -->
-   <hr class="sidebar-divider d-none d-md-block">
   <!-- Sidebar Toggler (Sidebar) -->
   <div class="text-center d-none d-md-inline">
       <button class="rounded-circle border-0" id="sidebarToggle"></button>

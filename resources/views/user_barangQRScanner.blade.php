@@ -8,7 +8,7 @@
   </head>
   <body>
 
-  @extends('template.main')
+  @extends('template.usermain')
   @section('content')
 
 

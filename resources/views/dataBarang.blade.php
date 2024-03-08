@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    
+  @extends('template.main')
+  @section('content')
+  
+
     <div class="ms-2 mb-5 mt-2"style="display: inline-block; vertical-align: middle;">
         <img src="Unand.png" style="width: 60px; vertical-align: middle;" />
     </div>
@@ -27,8 +30,7 @@
         <div class="col-auto">
         <div class="input-group md-form form-sm form-1 pl-0">
         <div class="input-group-prepend">
-            <span class="input-group-text cyan lighten-2" id="basic-text1"><i class="fas fa-search text-white"
-                aria-hidden="true"></i><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <span class="input-group-text cyan lighten-2" id="basic-text1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
             </svg></span>
         </div>
@@ -126,7 +128,7 @@
 
 
 <!-- side bar -->
-<div class="fixed-bottom ms-5 mb-5" >
+<!-- <div class="fixed-bottom ms-5 mb-5" >
     <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
@@ -196,7 +198,7 @@
 
     </div>
   </div>
-</div>
+</div> -->
 <!-- side bar -->
 
 
@@ -210,6 +212,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+   
   </body>
     <script>
         $('.delete').click( function(){
@@ -243,5 +246,5 @@
         toastr.success("{{ Session::get('success') }}");
     @endif
     </script>
-
+ @endsection
 </html>
