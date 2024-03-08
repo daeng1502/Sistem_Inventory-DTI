@@ -13,7 +13,7 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ route('home') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
   </li>
@@ -31,8 +31,8 @@
 
   <!-- Heading -->
   <div class="sidebar-heading">
-      Barang
-  </div>
+    User
+</div>
 
   <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
@@ -78,7 +78,7 @@
   </div>
 
   <li class="nav-item">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="{{ route('distribusi.data') }}">
       <i class="fas fa-fw fa-folder"></i>
         <span>Distribusi</span></a>
   </li>
