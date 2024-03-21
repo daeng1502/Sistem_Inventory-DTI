@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\Maintenance;
 
 class Barang extends Model
 {
@@ -28,5 +30,10 @@ class Barang extends Model
         public static function latestData()
         {
             return static::orderBy('created_at', 'desc')->get();
+        }
+
+        public function maintenance(): HasOne
+        {
+            return $this->hasOne(Maintenance::class, 'id_barang', 'SN');
         }
 }

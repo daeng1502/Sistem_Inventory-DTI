@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    @extends('template.main')
+    @extends('template.usermain')
     @section('content')
+   
     
-
 <div class="ms-2 mb-5 mt-2"style="display: inline-block; vertical-align: middle;">
     </div>
     <div style="display: inline-block; vertical-align: middle;">
@@ -21,7 +21,7 @@
 
 <div class="container">
     <div class="position-relative mb-3 ">
-        <a href="/barangQRScanner" class="btn btn-primary position-absolute bottom-0 end-0 mt-4">Kembali</a>
+        <a href="/ManajemenItemUser" class="btn btn-primary position-absolute bottom-0 end-0 mt-4">Kembali</a>
         
         <div class="row g-3 align-items-center">
             <div class="col-auto">
@@ -40,48 +40,50 @@
     <div class="row">
         <table class="table table-striped mx-3">
             <tbody>
+                @foreach($data as $row)
                 <tr>
-                    <td><strong>SN:</strong> {{ $data->SN }}</td>
+                    <td><strong>SN:</strong> {{ $row->SN }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Gambar:</strong> <img src="{{ asset('fotoBarang/'.$data->foto) }}" style="width: 200px"></td>
+                    <td><strong>Gambar:</strong> <img src="{{ asset('fotoBarang/'.$row->foto) }}" style="width: 200px"></td>
                 </tr>
                 <tr>
-                    <td><strong>Nama:</strong> {{ $data->nama }}</td>
+                    <td><strong>Nama:</strong> {{ $row->nama }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Merk:</strong> {{ $data->merk }}</td>
+                    <td><strong>Merk:</strong> {{ $row->merk }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Spesifikasi:</strong> {{ $data->spesifikasi }}</td>
+                    <td><strong>Spesifikasi:</strong> {{ $row->spesifikasi }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Jumlah:</strong> {{ $data->jumlah_barang }}</td>
+                    <td><strong>Jumlah:</strong> {{ $row->jumlah_barang }}</td>
                 </tr>
                 <tr>
-                    <td><strong>No Kontrak:</strong> {{ $data->no_kontrak }}</td>
+                    <td><strong>No Kontrak:</strong> {{ $row->no_kontrak }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Nama Kontrak:</strong> {{ $data->nama_kontrak }}</td>
+                    <td><strong>Nama Kontrak:</strong> {{ $row->nama_kontrak }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Tanggal Kontrak:</strong> {{ $data->tgl_kontrak }}</td>
+                    <td><strong>Tanggal Kontrak:</strong> {{ $row->tgl_kontrak }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Lokasi:</strong> {{ $data->harga }}</td>
+                    <td><strong>Harga:</strong> {{ $row->harga }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Tahun Perolehan:</strong> {{ $data->tahun_perolehan }}</td>
+                    <td><strong>Tahun Perolehan:</strong> {{ $row->tahun_perolehan }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Barcode:</strong><br>{!! DNS1D::getBarcodeHTML($data->barangcode,'PHARMA',1,50) !!} P - {{ $data->SN }}</td>
+                    <td><strong>Barcode:</strong><br>{!! DNS1D::getBarcodeHTML("$row->barangcode",'PHARMA',1,50) !!} P - {{ $row->SN }}</td>
                 </tr>
                 <tr>
-                    <td><strong>QRcode:</strong><br>{!! DNS2D::getBarcodeHTML($data->barangcode,'QRCODE') !!}</td>
+                    <td><strong>QRcode:</strong><br>{!! DNS2D::getBarcodeHTML("$row->barangcode",'QRCODE') !!}</td>
                 </tr>  
                 <tr>
-                    <td><strong>Created at:</strong> {{ $data->created_at }}</td>
+                    <td><strong>Created at:</strong> {{ $row->created_at }}</td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -91,7 +93,6 @@
     </div>
     @endif
 </div>
-
-    @endsection
+@endsection
 </body>
 </html>

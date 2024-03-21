@@ -168,7 +168,20 @@ class BarangController extends Controller
     public function detailBarang($SN){
         // $data = Barang::find($SN)->first();
         $data = DB::table('barangs')->where('SN', $SN)->get();
-        return view('detailBarang',['data' => $data]);
+        // return view('detailBarang',['data' => $data]);
+        if (Auth::check()) {
+            $usertype = Auth()->user()->usertype;
+            
+            if ($usertype == 'user') {
+                return view('detailBarangUser')->with('data', $data);
+            } elseif ($usertype == 'admin') {
+                return view('detailBarang')->with('data', $data);
+            } else {
+                return redirect()->back();
+            }
+        } else {
+            // Redirect somewhere else if user is not logged in
+        }
     }
 
     public function scanner(){
