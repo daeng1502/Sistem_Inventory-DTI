@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\DistribusiController;
+use App\Http\Controllers\MaintenanceController;
+
 
 use App\Http\Controllers\UserController;
 
@@ -88,9 +90,10 @@ Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('h
 Route::get('post',[HomeController::class,'post'])->middleware(('auth'),('admin'));
 
 
+//--Router Modul Barang start--
 //CRUDSD+Scanner
 Route::get('/ManajemenItemUser', [BarangController::class, 'index'])->name('barang');
-Route::get('/detailBarang/{SN}', [BarangController::class, 'detailBarang'])->name('detailBarang');
+Route::get('/detailBarangUser/{SN}', [BarangController::class, 'detailBarang'])->name('detailBarangUser');
 Route::get('/barangQRScanner', [BarangController::class, 'scanner'])->name('barangQRScanner');
 Route::post('/scan', [BarangController::class, 'scan'])->name('scan');
 Route::get('/barangQRScanner', [BarangController::class, 'scanner'])->name('scanner');
@@ -102,20 +105,39 @@ Route::post('/insertBarang', [BarangController::class, 'store'])->name('insertBa
 Route::get('/tampilBarang/{SN}', [BarangController::class, 'tampilBarang'])->name('tampilBarang')->middleware(('auth'),('admin'));
 Route::post('/updateBarang/{SN}', [BarangController::class, 'updateBarang'])->name('updateBarang')->middleware(('auth'),('admin'));
 Route::get('/hapusBarang/{SN}', [BarangController::class, 'hapusBarang'])->name('hapusBarang')->middleware(('auth'),('admin'));
+Route::get('/detailBarang/{SN}', [BarangController::class, 'detailBarang'])->name('detailBarang')->middleware(('auth'),('admin'));
+//--Router Modul Barang end--
 
+
+//--Router Modul User start--
 // Menampilkan daftar user
 Route::get('/user', [UserController::class, 'index'])->name('user');
-
 // Menampilkan form tambah user
 Route::get('/createUser', [UserController::class, 'createUser'])->name('createUser');
 Route::post('/insertUser', [UserController::class, 'insertUser'])->name('insertUser');
-
 // Menampilkan form edit user
 Route::get('/showUser/{id}', [UserController::class, 'showUser'])->name('showUser');
 Route::post('/updateUser/{id}', [UserController::class, 'updateUser'])->name('updateUser');
-
 // Menghapus user
 Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
+//--Router Modul User stendart--
+
+
+
+//--Router Modul Maintenance start--
+Route::get('/UserMaintenance', [MaintenanceController::class, 'index'])->name('maintenance.data_user');
+Route::get('/Maintenance', [MaintenanceController::class, 'index'])->name('maintenance.data')->middleware(('auth'),('admin'));
+Route::get('/request-maintenance', [MaintenanceController::class, 'tambahRequest'])->name('maintenance.tambah');
+Route::post('/insert-request', [MaintenanceController::class, 'insertRequest'])->name('maintenance.insert');
+Route::get('/delete-request{id}', [MaintenanceController::class, 'delete'])->name('maintenance.delete')->middleware(('auth'),('admin'));
+Route::get('/showRequest/{id}', [MaintenanceController::class, 'showRequest'])->name('maintenance.showRequest')->middleware(('auth'),('admin'));
+Route::post('/updateRequest/{id}', [MaintenanceController::class, 'updateRequest'])->name('maintenance.updateRequest')->middleware(('auth'),('admin'));
+
+
+//--Router Modul Maintenance end--
+
+
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -134,7 +156,7 @@ require __DIR__.'/auth.php';
 //     return view('requestMaintenance');
 // });
 
-route::get('/requestMaintenance',[RequestController::class,'requestMaintenance']);
+//route::get('/requestMaintenance',[RequestController::class,'requestMaintenance']);
 
 Route::get('/riwayatMaintenance', function () {
     return view('riwayatMaintenance');
