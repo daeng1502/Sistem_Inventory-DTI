@@ -117,6 +117,10 @@ Route::post('/updateUser/{id}', [UserController::class, 'updateUser'])->name('up
 // Menghapus user
 Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
 
+// Eksport Laporan Barang
+Route::get('/dataBarang', [BarangController::class, 'dataBarang'])->name('dataBarang');
+Route::get('/exportBarang', [BarangController::class, 'exportBarang'])->name('exportBarang');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Validator;
+use PDF;
 
 class BarangController extends Controller
 {
@@ -192,6 +193,49 @@ class BarangController extends Controller
         $data = Barang::get();
 
         return response()->json($data);
+   }
+
+   public function dataBarang(Request $request) 
+   {
+    $query = Barang::orderBy('created_at', 'desc'); // Urutkan data berdasarkan tanggal pembuatan
+
+    if ($request->has('search')) {
+        $searchTerm = $request->search;
+        $data = $query->where('nama', 'LIKE', '%' . $searchTerm . '%')
+                      ->orWhere('SN', 'LIKE', '%' . $searchTerm . '%')
+                      ->orWhere('tgl_kontrak', 'LIKE', '%' . $searchTerm . '%')
+                      ->orWhere('merk', 'LIKE', '%' . $searchTerm . '%')
+                      ->orWhere('tahun_perolehan', 'LIKE', '%' . $searchTerm . '%')
+                      ->orWhere('harga', 'LIKE', '%' . $searchTerm . '%')
+                      ->paginate(5);
+    } else {
+        $data = $query->paginate(5);
+    }
+
+    return view('laporan.dataBarang')->with('data', $data);
+}
+
+   public function exportBarang(Request $request)
+   {
+    $query = Barang::orderBy('created_at', 'desc'); // Urutkan data berdasarkan tanggal pembuatan
+
+    if ($request->has('search')) {
+        $searchTerm = $request->search;
+        $data = $query->where('nama', 'LIKE', '%' . $searchTerm . '%')
+                      ->orWhere('SN', 'LIKE', '%' . $searchTerm . '%')
+                      ->orWhere('tgl_kontrak', 'LIKE', '%' . $searchTerm . '%')
+                      ->orWhere('merk', 'LIKE', '%' . $searchTerm . '%')
+                      ->orWhere('tahun_perolehan', 'LIKE', '%' . $searchTerm . '%')
+                      ->orWhere('harga', 'LIKE', '%' . $searchTerm . '%')
+                      ->paginate(5);
+    } else {
+        $data = $query->paginate(5);
+    }
+
+        // $data = Barang::all();
+    view()->share('data', $data);
+    $pdf = PDF::loadview('laporan.dataBarang-pdf');
+    return $pdf->download('dataBarang.pdf');
    }
 
     
