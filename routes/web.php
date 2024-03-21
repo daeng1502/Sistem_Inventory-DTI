@@ -139,6 +139,10 @@ Route::post('/updateRequest/{id}', [MaintenanceController::class, 'updateRequest
 
 
 
+// Eksport Laporan Barang
+Route::get('/dataBarang', [BarangController::class, 'dataBarang'])->name('dataBarang');
+Route::get('/exportBarang', [BarangController::class, 'exportBarang'])->name('exportBarang');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
