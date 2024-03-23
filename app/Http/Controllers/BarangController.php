@@ -184,20 +184,48 @@ class BarangController extends Controller
     }
 
     public function scanner(){
-        return view('barangQRScanner');
+        if (Auth::check()) {
+            $usertype = Auth()->user()->usertype;
+            
+            if ($usertype == 'user') {
+                return view('barangQRScannerUser');
+            } elseif ($usertype == 'admin') {
+                return view('barangQRScanner');
+            } else {
+                return redirect()->back();
+            }
+        } else {
+            // Redirect somewhere else if user is not logged in
+        }
     }
 
     public function scan(Request $request){
         // Cari data barang berdasarkan barangcode yang diberikan
         $data = Barang::where('barangcode', $request->barangcode)->first();
     
-        // Jika data barang ditemukan, tampilkan detail barang
-        if($data){
-            return view('detailBarangScan', ['data' => $data]);
+
+        if (Auth::check()) {
+            $usertype = Auth()->user()->usertype;
+            
+            if ($usertype == 'user') {
+                if($data){
+                    return view('detailBarangScanUser', ['data' => $data]);
+                }
+                // Jika data barang tidak ditemukan, kembalikan ke halaman scanner dengan pesan kesalahan
+                return redirect('/barangQRScannerUser')->with('gagal', 'Data tidak ditemukan');
+            } elseif ($usertype == 'admin') {
+                // Jika data barang ditemukan, tampilkan detail barang
+                if($data){
+                    return view('detailBarangScan', ['data' => $data]);
+                }
+                // Jika data barang tidak ditemukan, kembalikan ke halaman scanner dengan pesan kesalahan
+                return redirect('/barangQRScanner')->with('gagal', 'Data tidak ditemukan');
+            } else {
+                return redirect()->back();
+            }
+        } else {
+            // Redirect somewhere else if user is not logged in
         }
-        
-        // Jika data barang tidak ditemukan, kembalikan ke halaman scanner dengan pesan kesalahan
-        return redirect('/barangQRScanner')->with('gagal', 'Data tidak ditemukan');
     }
 
     public function combo_barang() {

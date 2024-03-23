@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maintenance</title>
+  <title>Procurement</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
-@extends('template.main')
+  @extends('template.main')
   @section('content')
   <div class="ms-2 mb-5 mt-2" style="display: inline-block; vertical-align: middle;">
     <img src="Unand.png" style="width: 60px; vertical-align: middle;" />
@@ -21,7 +21,7 @@
 
   <div class="container">
     <div class="position-relative mb-3">
-      <a href="/request-maintenance" class="btn btn-primary position-absolute bottom-0 end-0 mt-4 mb-2"> + Request Maintenance</a>
+      <a href="/request-pengadaan" class="btn btn-primary position-absolute bottom-0 end-0 mt-4 mb-2"> + Request Pengadaan</a>
     </div>
     <div class="row">
       <table class="table table-hover">
@@ -29,34 +29,30 @@
           <tr>
             <th scope="col">ID</th>
             <!-- <th scope="col">Gambar</th> -->
-            <th scope="col">Kode Barang</th>
-            <th scope="col">Barang</th>
+            <th scope="col">Product</th>
             <th scope="col">Merk</th>
-            <!-- <th scope="col">Tahun</th> -->
-            <!-- <th scope="col">Lokasi</th> -->
-            <th scope="col">Kondisi</th>
+            <th scope="col">Jumlah</th>
             <th scope="col">Requester</th>
             <th scope="col">Tanggal Request</th>
+            <th scope="col">Deskripsi</th>
             <th scope="col">Status</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
         <tbody>
 
-         @php
-            $no = 1 
-         @endphp
+          @php
+          $no = 1
+          @endphp
           @foreach ($data as $row)
           <tr>
-            <th scope="row">{{$no++}}</th>
-            <td>{{ $row->id_barang}}</td>
-            <td>{{$row->barang->nama}}</td>
-            <td>{{$row->barang->merk}}</td>
-            <!-- <td>{{$row->barang->tahun_perolehan}}</td> -->
-            <!-- <td>{{ $row->lokasi }}</td> -->
-            <td>{{ $row->kondisi }}</td>
+            <th scope="row">{{ $no++ }}</th>
+            <td>{{$row->barang}}</td>
+            <td>{{$row->merk}}</td>
+            <td>{{ $row->jumlah }}</td>
             <td>{{ $row->user->name }}</td>
             <td>{{ \Carbon\Carbon::parse($row->created_at)->format('d-m-Y') }}</td>
+            <td>{{ $row->Deskripsi }}</td>
             <td>
               @if($row->status == "Menunggu")
               <span class="badge text-bg-secondary">Menunggu</span>
@@ -71,13 +67,12 @@
               @endif
             </td>
             <td>
-              <a href="{{ route('maintenance.delete', ['id' => $row->id]) }}" class="btn btn-danger">Delete</a>
-              <a href="{{ route('maintenance.showRequest', ['id' => $row->id]) }}" class="btn btn-info">Edit</a>              
+            <a href="{{ route('pengadaan.delete', ['id' => $row->id]) }}" class="btn btn-danger">Delete</a>
+              <a href="{{ route('pengadaan.showRequest', ['id' => $row->id]) }}" class="btn btn-info">Edit</a>
             </td>
-
           </tr>
-
           @endforeach
+
 
         </tbody>
       </table>
@@ -87,4 +82,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 @endsection
+
 </html>

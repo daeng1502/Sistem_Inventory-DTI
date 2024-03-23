@@ -85,7 +85,7 @@
                     <th scope="col">Tanggal Kontrak</th> -->
             <!--<th scope="col">Harga (Rp)</th> -->
             <th scope="col">Tahun</th>
-            <th scope="col">Barcode</th>
+            <!-- <th scope="col">Barcode</th> -->
             <th scope="col">Aksi</th>
           </tr>
         </thead>
@@ -108,7 +108,7 @@
             <td>{{ $row->tahun_perolehan }}</td>
             <!-- <td>{!! DNS2D::getBarcodeHTML("$row->barangcode",'QRCODE') !!}</td> -->
             <!-- <td>{!! DNS2D::getBarcodeHTML("$row->barangcode",'DATAMATRIX') !!}</td> -->
-            <td>{!! DNS1D::getBarcodeHTML("$row->barangcode",'PHARMA',1,50) !!}
+            <!-- <td>{!! DNS1D::getBarcodeHTML("$row->barangcode",'PHARMA',1,50) !!} -->
               <!-- P - {{ $row->SN }} -->
             </td>
             <td>

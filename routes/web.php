@@ -7,6 +7,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\DistribusiController;
 use App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\PengadaanController;
 
 
 use App\Http\Controllers\UserController;
@@ -96,7 +97,7 @@ Route::get('/ManajemenItemUser', [BarangController::class, 'index'])->name('bara
 Route::get('/detailBarangUser/{SN}', [BarangController::class, 'detailBarang'])->name('detailBarangUser');
 Route::get('/barangQRScanner', [BarangController::class, 'scanner'])->name('barangQRScanner');
 Route::post('/scan', [BarangController::class, 'scan'])->name('scan');
-Route::get('/barangQRScanner', [BarangController::class, 'scanner'])->name('scanner');
+Route::get('/barangQRScannerUser', [BarangController::class, 'scanner'])->name('scanner');
 
 //Admin
 Route::get('/ManajemenItem', [BarangController::class, 'index'])->name('barang')->middleware(('auth'),('admin'));
@@ -106,6 +107,7 @@ Route::get('/tampilBarang/{SN}', [BarangController::class, 'tampilBarang'])->nam
 Route::post('/updateBarang/{SN}', [BarangController::class, 'updateBarang'])->name('updateBarang')->middleware(('auth'),('admin'));
 Route::get('/hapusBarang/{SN}', [BarangController::class, 'hapusBarang'])->name('hapusBarang')->middleware(('auth'),('admin'));
 Route::get('/detailBarang/{SN}', [BarangController::class, 'detailBarang'])->name('detailBarang')->middleware(('auth'),('admin'));
+Route::get('/barangQRScanner', [BarangController::class, 'scanner'])->name('scanner');
 //--Router Modul Barang end--
 
 
@@ -132,11 +134,20 @@ Route::post('/insert-request', [MaintenanceController::class, 'insertRequest'])-
 Route::get('/delete-request{id}', [MaintenanceController::class, 'delete'])->name('maintenance.delete')->middleware(('auth'),('admin'));
 Route::get('/showRequest/{id}', [MaintenanceController::class, 'showRequest'])->name('maintenance.showRequest')->middleware(('auth'),('admin'));
 Route::post('/updateRequest/{id}', [MaintenanceController::class, 'updateRequest'])->name('maintenance.updateRequest')->middleware(('auth'),('admin'));
-
-
 //--Router Modul Maintenance end--
 
 
+//--Router Modul Pengadaan start--
+Route::get('/UserProcurement', [PengadaanController::class, 'index'])->name('pengadaan.data_user');
+Route::get('/Procurement', [PengadaanController::class, 'index'])->name('pengadaan.data')->middleware(('auth'),('admin'));
+Route::get('/request-pengadaan', [PengadaanController::class, 'tambahRequest'])->name('tambahPengadaan');
+Route::post('/insert-requestPengadaan', [PengadaanController::class, 'insertRequest'])->name('insertPengadaan');
+Route::get('/delete-requestPengadaan/{id}', [PengadaanController::class, 'delete'])->name('pengadaan.delete')->middleware(('auth'),('admin'));
+Route::get('/showRequestPengadaan/{id}', [PengadaanController::class, 'showRequest'])->name('pengadaan.showRequest')->middleware(('auth'),('admin'));
+Route::post('/updateRequestPengadaan/{id}', [PengadaanController::class, 'updateRequest'])->name('pengadaan.updateRequest')->middleware(('auth'),('admin'));
+
+
+//--Router Modul Pengadaan end--
 
 
 // Route::get('/dashboard', function () {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Maintenance</title>
+    <title>Procurement</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -24,29 +24,37 @@
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="card mb-5">
-                    <h2 class="text-center mb-2 mt-2 ms-2">Form Request Maintenance Barang</h2>
+                    <h2 class="text-center mb-2 mt-2 ms-2">Form Request Pengadaan Barang</h2>
                     <div class="card-body">
-                    <form action="/insert-request" method="POST" enctype="multipart/form-data">
+
+                        <form action="/insert-requestPengadaan" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-
-                                <label for="id_barang">Data Barang:</label>
-                                <select class="form-control" id="id_barang" name="id_barang">
-                                    <option value="">Pilih SN Barang</option>
-                                    @foreach($barangs as $barang)
-                                    <option value="{{ $barang->SN }}">{{ $barang->SN }} - {{ $barang->nama }} - {{ $barang->merk }} - {{ $barang->tahun_perolehan }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="kondisi">Product:</label>
+                                <input type="text" class="form-control" id="barang" name="barang">
                             </div>
-                            <br>
-
-                            <!-- Input Kondisi -->
+                            
                             <div class="form-group">
-                                <label for="kondisi">Kondisi:</label>
-                                <input type="text" class="form-control" id="kondisi" name="kondisi">
+                                <label for="kondisi">Merk:</label>
+                                <input type="text" class="form-control" id="merk" name="merk">
                             </div>
-                            <br>
+                            
+                            <div class="form-group">
+                                <label for="kondisi">Jumlah:</label>
+                                <input type="text" class="form-control" id="jumlah" name="jumlah">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="kondisi">Deskripsi:</label>
+                                <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+                            </div>
+<!-- 
+                            <div class="form-group">
+                                <label for="kondisi">Tanggal Input:</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal">
+                            </div> -->
 
+                            
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
 

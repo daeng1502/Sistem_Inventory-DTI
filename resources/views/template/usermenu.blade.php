@@ -74,7 +74,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="/Maintenance">
+        <a class="nav-link" href="/UserProcurement">
             <i class="fas fa-fw fa-folder"></i>
             <span>Pengadaan</span></a>
     </li>
