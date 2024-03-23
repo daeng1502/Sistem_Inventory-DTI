@@ -150,6 +150,10 @@ Route::post('/updateRequestPengadaan/{id}', [PengadaanController::class, 'update
 //--Router Modul Pengadaan end--
 
 
+// Eksport Laporan Barang
+Route::get('/dataBarang', [BarangController::class, 'dataBarang'])->name('dataBarang');
+Route::get('/exportBarang', [BarangController::class, 'exportBarang'])->name('exportBarang');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
