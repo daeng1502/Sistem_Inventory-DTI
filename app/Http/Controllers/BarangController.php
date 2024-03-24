@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Validator;
-use PDF;
+// use PDF;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class BarangController extends Controller
 {

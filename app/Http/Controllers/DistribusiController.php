@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Distribusi;
-use DB;
+// use DB;
 use App\Helpers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Lokasi;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\SistemApp;
 use Illuminate\Http\Request;
 
