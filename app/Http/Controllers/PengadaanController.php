@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Pengadaan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class PengadaanController extends Controller
 {
@@ -110,6 +111,24 @@ class PengadaanController extends Controller
     
         $data->update($request->all());
         return redirect()->route('pengadaan.data')->with('success', 'Data Berhasil Diupdate');
+    }
+
+    public function dataPengadaan(Request $request)
+    {
+        $data = Pengadaan::all();
+        $users = User::all();
+
+        return view('laporan.dataPengadaan', compact('data','users'));
+    }
+
+    public function exportPengadaan(Request $request)
+    {
+        $data = Pengadaan::all();
+        $users = User::all();
+        
+        view()->share('data', $data);
+        $pdf = PDF::loadview('laporan.dataPengadaan-pdf');
+        return $pdf->download('dataPengadaan.pdf');
     }
 
 }

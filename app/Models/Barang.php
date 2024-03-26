@@ -32,8 +32,13 @@ class Barang extends Model
             return static::orderBy('created_at', 'desc')->get();
         }
 
-        public function maintenance(): HasOne
-        {
-            return $this->hasOne(Maintenance::class, 'id_barang', 'SN');
-        }
+        // public function maintenance(): HasOne
+        // {
+        //     return $this->hasOne(Maintenance::class, 'id_barang', 'SN');
+        // }
+
+        // public function distribusi(): HasOne
+        // {
+        //     return $this->hasOne(Distribusi::class, 'id_barang', 'SN');
+        // }
 }

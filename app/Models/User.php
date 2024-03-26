@@ -46,13 +46,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function maintenance(): HasOne
-    {
-        return $this->hasOne(Maintenance::class, 'user_id', 'id');
-    }
+    // public function maintenance(): HasOne
+    // {
+    //     return $this->hasOne(Maintenance::class, 'user_id', 'id');
+    // }
 
-    public function pengadaan(): HasOne
-    {
-        return $this->hasOne(Pengadaan::class, 'user_id', 'id');
-    }
+    // public function pengadaan(): HasOne
+    // {
+    //     return $this->hasOne(Pengadaan::class, 'user_id', 'id');
+    // }
+
+    // public function distribusi(): HasOne
+    // {
+    //     return $this->hasOne(Distribusi::class, 'user_id', 'id');
+    // }
 }

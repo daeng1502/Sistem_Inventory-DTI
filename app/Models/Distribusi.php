@@ -10,5 +10,14 @@ class Distribusi extends Model
     protected $table = 'distribusi';
     protected $primaryKey = 'dist_id';
 
+    // public function barang(): BelongsTo
+    // {
+    //     return $this->belongsTo(Barang::class, 'id_barang', 'SN');
+    // }
+
+    // public function user(): BelongsTo
+    // {
+    //     return $this->belongsTo(User::class, 'user_id', 'id');
+    // }
 
 }

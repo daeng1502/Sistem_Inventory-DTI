@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Distribusi;
+use App\Models\Barang;
 // use DB;
 use App\Helpers;
 use Carbon\Carbon;
@@ -11,6 +12,7 @@ use App\Models\Lokasi;
 use Illuminate\Support\Facades\DB;
 use App\Models\SistemApp;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\PDF;
 
 
 class DistribusiController extends Controller
@@ -201,6 +203,29 @@ class DistribusiController extends Controller
 
         return response()->json($transaction);
 
+    }
+
+    public function dataDistribusi(Request $request)
+    {
+        $data = Distribusi::all();
+        $barangs = Barang::all();
+        $users = User::all();
+        $lokasi = Lokasi::all();
+
+        return view('laporan.dataDistribusi', compact('data','barangs','users','lokasi'));
+    }
+
+    public function exportDistribusi(Request $request)
+    {
+        $data = Distribusi::all();
+        $barangs = Barang::all();
+        $users = User::all();
+        $lokasi = Lokasi::all();
+
+        view()->share('data', $data);
+        $pdf = PDF::loadview('laporan.dataDistribusi-pdf');
+        return $pdf->download('dataDistribusi.pdf');
+        
     }
 
 

@@ -153,6 +153,12 @@ Route::post('/updateRequestPengadaan/{id}', [PengadaanController::class, 'update
 // Eksport Laporan Barang
 Route::get('/dataBarang', [BarangController::class, 'dataBarang'])->name('dataBarang');
 Route::get('/exportBarang', [BarangController::class, 'exportBarang'])->name('exportBarang');
+Route::get('/dataMaintenance', [MaintenanceController::class, 'dataMaintenance'])->name('dataMaintenance');
+Route::get('/exportMaintenance', [MaintenanceController::class, 'exportMaintenance'])->name('exportMaintenance');
+Route::get('/dataPengadaan', [PengadaanController::class, 'dataPengadaan'])->name('dataPengadaan');
+Route::get('/exportPengadaan', [PengadaanController::class, 'exportPengadaan'])->name('exportMaintenance');
+Route::get('/dataDistribusi', [DistribusiController::class, 'dataDistribusi'])->name('dataDistribusi');
+Route::get('/exportDistribusi', [DistribusiController::class, 'exportDistribusi'])->name('exportDistribusi');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

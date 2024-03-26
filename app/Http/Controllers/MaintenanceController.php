@@ -7,6 +7,7 @@ use App\Models\Maintenance;
 use App\Models\Barang;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class MaintenanceController extends Controller
 {
@@ -126,6 +127,27 @@ class MaintenanceController extends Controller
     
         $data->update($request->all());
         return redirect()->route('maintenance.data')->with('success', 'Data Berhasil Diupdate');
+    }
+
+    public function dataMaintenance(Request $request)
+    {
+        $data = Maintenance::all();
+        $barangs = Barang::all();
+        $users = User::all();
+
+        return view('laporan.dataMaintenance', compact('data','barangs','users'));
+    }
+
+    public function exportMaintenance(Request $request)
+    {
+        $data = Maintenance::all();
+        $barangs = Barang::all();
+        $users = User::all();
+
+        view()->share('data', $data);
+        $pdf = PDF::loadview('laporan.dataMaintenance-pdf');
+        return $pdf->download('dataMaintenance.pdf');
+
     }
 
 }
