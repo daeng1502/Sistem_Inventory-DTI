@@ -11,15 +11,15 @@
 <body>
 @extends('template.main')
   @section('content')
-  <div class="ms-2 mb-5 mt-2" style="display: inline-block; vertical-align: middle;">
-    <img src="Unand.png" style="width: 60px; vertical-align: middle;" />
+  <div class="ms-2 mb-3 mt-2" style="display: inline-block; vertical-align: middle;">
+    <!-- <img src="Unand.png" style="width: 60px; vertical-align: middle;" /> -->
   </div>
   <div style="display: inline-block; vertical-align: middle;">
-    <h2 class="text-left ms-3">Aplikasi Inventaris</h2>
-    <h4 class="text-left ms-3 mb-5">DIREKTORAT TEKNOLOGI INFORMASI</h4>
+    <!-- <h2 class="text-left ms-3">Aplikasi Inventaris</h2>
+    <h4 class="text-left ms-3 mb-5">DIREKTORAT TEKNOLOGI INFORMASI</h4> -->
   </div>
 
-  <div class="container">
+  <div class="container mt-5">
     <div class="position-relative mb-3">
       <a href="/request-maintenance" class="btn btn-primary position-absolute bottom-0 end-0 mt-4 mb-2"> + Request Maintenance</a>
     </div>

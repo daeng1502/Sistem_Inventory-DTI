@@ -16,8 +16,11 @@ class CreateMaintenancesTable extends Migration
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id();
             $table->string('id_barang');
-            $table->foreign('id_barang')->references('SN')->on('barangs');
-            $table->unsignedBigInteger('user_id'); // Menggunakan tipe data yang sesuai
+            $table->foreign('id_barang')
+                  ->references('SN')
+                  ->on('barangs')
+                  ->onDelete('cascade'); // Menambahkan onDelete('cascade')
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             //$table->string('lokasi');
             $table->string('kondisi');
