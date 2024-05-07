@@ -12,11 +12,11 @@
   @extends('template.main')
   @section('content')
   <div class="ms-2 mb-5 mt-2" style="display: inline-block; vertical-align: middle;">
-    <img src="Unand.png" style="width: 60px; vertical-align: middle;" />
+    <!-- <img src="Unand.png" style="width: 60px; vertical-align: middle;" /> -->
   </div>
   <div style="display: inline-block; vertical-align: middle;">
-    <h2 class="text-left ms-3">Aplikasi Inventaris</h2>
-    <h4 class="text-left ms-3 mb-5">DIREKTORAT TEKNOLOGI INFORMASI</h4>
+    <!-- <h2 class="text-left ms-3">Aplikasi Inventaris</h2>
+    <h4 class="text-left ms-3 mb-5">DIREKTORAT TEKNOLOGI INFORMASI</h4> -->
   </div>
 
   <div class="container">
