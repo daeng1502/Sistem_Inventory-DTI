@@ -1,4 +1,88 @@
+<!DOCTYPE html>
 <html>
+    <style type= "text/css">
+        body 
+        {
+            font-family: arial; 
+            background-color : #ccc 
+        }
+        .rangkasurat {
+            width : 100%;
+            margin:0 auto;
+            background-color : #fff;
+            height: 500px;
+            padding: 20px;
+        }
+        table {
+            border-bottom : 5px solid # 000; 
+            padding: 2px
+        }
+        .tengah {
+            text-align : center;
+            line-height: 5px;
+        }
+        h1, h2 {
+            font-size: 24px;
+        }
+        .gambar-kolom{
+            width: 30%;
+        }
+        .teks-kolom{
+            width: 70%;
+            text-align : center;
+        }
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0)
+        }
+    </style >
+    <body>
+        <div class = "rangkasurat">
+        <table width = "100%">
+                <tr>
+                      <td class="gambar-kolom"> <img src="Unand.png" width="100px"> </td>
+                      <td class = "teks-kolom">
+                            <h1>UNIVERSITAS ANDALAS</h1>
+                            <h1>DIREKTORAT TEKNOLOGI INFORMASI</h1>
+                            <b>Limau Manis, Kec. Pauh, Kota Padang, Sumatera Barat 25175</b>
+                      </td>
+                 </tr>
+        </table >
+        <table id="customers">
+            <thead class="bg-light">
+                <tr>
+                    <td style="text-align: center"><b> NO </b></td>
+                    <td style="text-align: center"><b> Barang </b></td>
+                    <td style="text-align: center"><b> Pegawai </b></td>
+                    <td style="text-align: center"><b> Tanggal </b></td>
+                    <td style="text-align: center"><b> Surat  </b></td>
+                    <td style="text-align: center"><b> Keterangan </b></td>
+                </tr>
+            </thead>
+            <tbody id="show_data"></tbody>
+        </table>
+        </div>
+    </body>
 <div class="card shadow mb-4">
     {{-- <div class="card-header">
         <div class="row">
@@ -18,19 +102,7 @@
     </div>
     <div class="card-body">
 
-        <table id="#" class="table table-bordered table-sm">
-            <thead class="bg-light">
-                <tr>
-                    <td style="text-align: center"><b> NO </b></td>
-                    <td style="text-align: center"><b> Barang </b></td>
-                    <td style="text-align: center"><b> Pegawai </b></td>
-                    <td style="text-align: center"><b> Tanggal </b></td>
-                    <td style="text-align: center"><b> Surat  </b></td>
-                    <td style="text-align: center"><b> Keterangan </b></td>
-                </tr>
-            </thead>
-            <tbody id="show_data"></tbody>
-        </table>
+
     </div>
     
 </div>
